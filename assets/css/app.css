@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Titillium Web";
+  src: url("../fonts/Titillium/TitilliumWeb-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/static/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter/static/Inter-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway/static/Raleway-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "League Spartan";
+  src: url("../fonts/Spartan/static/LeagueSpartan-Regular.ttf");
+}
+
+@font-face {
+  font-family: "League Script";
+  src: url("../fonts/League_Script/LeagueScript-Regular.ttf");
+}
+/* 
+* {
+  font-family: "Montserrat" !important;
+}
+
+.text-montserrat {
+  font-family: "Montserrat" !important;
+} */

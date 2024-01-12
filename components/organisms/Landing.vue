@@ -1,0 +1,48 @@
+<template>
+  <div class="landing-section-container pa-6">
+    <v-container class="landing-inner-section">
+      <v-row no-gutters align="center">
+        <v-col>
+          <div>
+            <div class="text-h6">Hello, I'm</div>
+            <div class="text-h4 font-weight-bold mt-2">Professor Rangie</div>
+            <div class="mt-6">
+              Web Developer based on Philippines, who loved adventure, <br />
+              play basketball and online games.
+            </div>
+            <div class="mt-12">
+              <v-btn
+                class="rounded-xl text-capitalize"
+                density="default"
+                flat
+                height="50"
+                width="180"
+                color="primary"
+              >
+                See my works
+              </v-btn>
+            </div>
+          </div>
+        </v-col>
+        <v-col> </v-col>
+      </v-row>
+    </v-container>
+  </div>
+</template>
+
+<script setup lang="ts"></script>
+
+<style scoped>
+.landing-section-container {
+  height: 80vh;
+  background: #ebebeb;
+}
+
+.landing-inner-section {
+  height: 100%;
+}
+
+.v-row {
+  height: 100%;
+}
+</style>

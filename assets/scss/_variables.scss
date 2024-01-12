@@ -1,0 +1,134 @@
+@mixin img_container_border {
+  border-radius: 100%; /* Adjust the value to change the level of rounding */
+  display: grid;
+  place-content: center;
+}
+
+@mixin img_outer_border_fixed_position {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin img_outer_border_radius_color {
+  border: 10px solid $dev-bg-1;
+  border-radius: 100%;
+}
+
+/**
+* TV HOME IMG CSS
+*/
+
+@mixin tv_home_img_container {
+  background-color: #ffffff;
+  width: 31.875rem;
+  height: 31.875rem;
+  @include img_container_border;
+}
+
+@mixin tv_home_img_outer_border {
+  @include img_outer_border_radius_color;
+  @include img_outer_border_fixed_position;
+  width: 33.125rem;
+  height: 33.125rem;
+}
+
+@mixin tv_home_img_rounded_image {
+  border-radius: 100%;
+  border: 10px solid $dev-bg-1;
+}
+
+/**
+* DESKTOP HOME IMG CSS
+*/
+
+@mixin desktop_home_img_container {
+  background-color: #ffffff;
+  width: 28.875rem;
+  height: 28.875rem;
+  @include img_container_border;
+}
+
+@mixin desktop_home_img_outer_border {
+  @include img_outer_border_radius_color;
+  @include img_outer_border_fixed_position;
+  width: 30.125rem;
+  height: 30.125rem;
+}
+
+@mixin desktop_home_img_rounded_image {
+  border-radius: 100%;
+  border: 10px solid $dev-bg-1;
+}
+
+/**
+* LAPTOP HOME IMG CSS
+*/
+
+@mixin laptop_home_img_container {
+  background-color: #ffffff;
+  width: 22.875rem;
+  height: 22.875rem;
+  @include img_container_border;
+}
+
+@mixin laptop_home_img_outer_border {
+  @include img_outer_border_radius_color;
+  @include img_outer_border_fixed_position;
+  width: 24.125rem;
+  height: 24.125rem;
+}
+
+@mixin laptop_home_img_rounded_image {
+  border-radius: 100%;
+  border: 10px solid $dev-bg-1;
+}
+
+/**
+* TABLET HOME IMG CSS
+*/
+
+@mixin tablet_home_img_container {
+  background-color: #ffffff;
+  width: 18.875rem;
+  height: 18.875rem;
+  @include img_container_border;
+}
+
+@mixin tablet_home_img_outer_border {
+  @include img_outer_border_radius_color;
+  @include img_outer_border_fixed_position;
+  width: 20.125rem;
+  height: 20.125rem;
+}
+
+@mixin tablet_home_img_rounded_image {
+  border-radius: 100%;
+  border: 10px solid $dev-bg-1;
+}
+
+/**
+* MOLBILE HOME IMG CSS
+*/
+
+@mixin mobile_home_img_container {
+  background-color: #ffffff;
+  width: 13.875rem;
+  height: 13.875rem;
+  @include img_container_border;
+}
+
+@mixin mobile_home_img_outer_border {
+  @include img_outer_border_radius_color;
+  @include img_outer_border_fixed_position;
+  width: 15.125rem;
+  height: 15.125rem;
+}
+
+@mixin mobile_home_img_rounded_image {
+  border-radius: 100%;
+  border: 10px solid $dev-bg-1;
+}
+
+/***/

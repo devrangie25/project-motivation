@@ -1,0 +1,24 @@
+@mixin layout_common {
+  padding: 10rem 16rem 10rem 16rem;
+  height: 100%;
+}
+
+@mixin banana_design {
+  @include layout_common;
+  background-image: url("~/assets/img/bg-black-yellow.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .card-container {
+    background-color: $dev-yellow-primary;
+  }
+}
+
+@mixin water_design {
+  @include layout_common;
+  background-color: $dev-blue-green;
+
+  .card-container {
+    background-color: $dev-gray;
+  }
+}
