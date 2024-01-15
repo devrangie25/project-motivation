@@ -1,7 +1,14 @@
 <template>
     <div class="works-section-container pa-6">
       <v-container class="works-inner-section">
-        <div class="text-h4 mt-6 mb-n12">Works</div>
+        <div class="d-flex justify-space-between align-center mt-6 mb-n12">
+          <div class="text-h4">Works</div>
+          <div>
+            <v-btn variant="text" class="text-none" append-icon="mdi-arrow-right">
+              See all
+            </v-btn>
+          </div>
+        </div>
         <v-row align="center">
           <v-col v-for="card in 3">
             <v-hover v-slot="{ isHovering, props }" open-delay="200">

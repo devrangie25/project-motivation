@@ -24,7 +24,9 @@
             </div>
           </div>
         </v-col>
-        <v-col> </v-col>
+        <v-col class="d-flex justify-center">
+          <img class="big-head" src="/img/bighead-2.svg" alt="big-head-icon-img" width="500">
+        </v-col>
       </v-row>
     </v-container>
   </div>
@@ -33,6 +35,9 @@
 <script setup lang="ts"></script>
 
 <style scoped>
+.big-head {
+  margin: -10rem 0 0 0;
+}
 .landing-section-container {
   height: 80vh;
   background: #ebebeb;

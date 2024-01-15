@@ -5,8 +5,8 @@
       <v-main>
         <NuxtPage />
       </v-main>
+      <m-base-footer />
     </v-layout>
-    <m-base-footer />
   </v-app>
 </template>
 
