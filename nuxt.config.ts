@@ -20,6 +20,17 @@ export default defineNuxtConfig({
     port: 8000
   },
   
+  runtimeConfig: {
+    // The private keys which are only available within server-side
+    // api-key: 'test-api-key'
+    // Keys within public, will be also exposed to the client-side
+    public: {
+      NUXT_PUBLIC_NAME: process.env.NUXT_PUBLIC_NAME || 'Rangie Laurente',
+      NUXT_PUBLIC_LANDING_DESCRIPTION: process.env.NUXT_PUBLIC_LANDING_DESCRIPTION || '',
+      NUXT_PUBLIC_FULL_TIME: process.env.NUXT_PUBLIC_FULL_TIME === 'true'
+    }
+  },
+  
   vite: {
     define: {
       "process.env.DEBUG": false,

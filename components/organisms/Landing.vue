@@ -5,10 +5,9 @@
         <v-col>
           <div>
             <div class="text-h6">Hello, I'm</div>
-            <div class="text-h4 font-weight-bold mt-2">Professor Rangie</div>
+            <div class="text-h4 font-weight-bold mt-2">{{ getName }}</div>
             <div class="mt-6">
-              Web Developer based on Philippines, who loved adventure, <br />
-              play basketball and online games.
+              <span v-html="getLandingDescription"></span>
             </div>
             <div class="mt-12">
               <v-btn
@@ -18,6 +17,7 @@
                 height="50"
                 width="180"
                 color="primary"
+                to="/works"
               >
                 See my works
               </v-btn>
@@ -25,14 +25,32 @@
           </div>
         </v-col>
         <v-col class="d-flex justify-center">
-          <img class="big-head" src="/img/bighead-2.svg" alt="big-head-icon-img" width="500">
+          <img
+            class="big-head"
+            src="/img/bighead-2.svg"
+            alt="big-head-icon-img"
+            width="500"
+          />
         </v-col>
       </v-row>
     </v-container>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const runtimeConfig = useRuntimeConfig()
+
+const getName = computed(() => {
+  return runtimeConfig.public.NUXT_PUBLIC_NAME
+})
+
+const getLandingDescription = computed(() => {
+  return (
+    runtimeConfig.public.NUXT_PUBLIC_LANDING_DESCRIPTION ||
+    "Web Developer based on Philippines, who love adventure, <br />play basketball and online games."
+  )
+})
+</script>
 
 <style scoped>
 .big-head {

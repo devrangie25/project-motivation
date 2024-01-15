@@ -5,8 +5,8 @@
     </template>
 
     <template v-slot:append>
-      <v-btn class="text-capitalize">About</v-btn>
-      <v-btn class="text-capitalize ml-4">Works</v-btn>
+      <v-btn class="text-capitalize" to="/">Home</v-btn>
+      <v-btn class="text-capitalize ml-4" to="/works">Works</v-btn>
       <v-btn
         class="text-capitalize ml-4 rounded-xl"
         color="primary"

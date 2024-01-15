@@ -1,7 +1,7 @@
 <template>
   <div class="expertise-section-container pa-6">
     <v-container class="expertise-inner-section">
-      <div class="text-h4 mt-6 mb-n12">Expert In</div>
+      <div class="text-h4 mt-6 mb-n12">Skills</div>
       <v-row v-if="false" align="center">
         <v-col v-for="card in 3">
           <v-hover v-slot="{ isHovering, props }" open-delay="200">

@@ -1,7 +1,7 @@
 <template>
   <div class="pa-6">
     <v-container>
-      <v-row>
+      <v-row class="py-12">
         <v-col cols="8">
           <v-card flat height="500" color="#ebebeb" class="pa-6">
             Card Here
