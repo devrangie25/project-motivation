@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="#ebebeb" class="text-center d-flex flex-column">
+  <v-footer color="#ebebeb" app class="text-center d-flex flex-column">
     <div>
       <v-btn
         v-for="icon in icons"
@@ -10,8 +10,10 @@
       ></v-btn>
     </div>
 
-    <div class="mt-4">
-      Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris
+    <div class="mt-4 subtitle-1">
+      <span class="font-italic">
+        "Don’t comment bad code, rewrite it." <span> – Brian Kernighan </span> 
+      </span>
     </div>
 
     <div class="subtitle-1 my-4">
