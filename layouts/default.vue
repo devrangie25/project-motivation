@@ -5,7 +5,9 @@
       <v-main>
         <NuxtPage />
       </v-main>
-      <m-base-footer />
+      <ClientOnly>
+        <m-base-footer />
+      </ClientOnly>
     </v-layout>
   </v-app>
 </template>

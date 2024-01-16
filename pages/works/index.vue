@@ -1,7 +1,7 @@
 <template>
     <div class="pa-6">
         <v-container>
-            <v-row>
+            <v-row class="py-12">
                 <v-col cols="4" v-for="(work, ind) in 8" :key="work">
                     <v-card flat height="300" color="#ebebeb" class="pa-6">
                         Card Here

@@ -4,14 +4,14 @@
         <div class="d-flex justify-space-between align-center mt-6 mb-n12">
           <div class="text-h4">Works</div>
           <div>
-            <v-btn variant="text" class="text-none" append-icon="mdi-arrow-right">
+            <v-btn variant="text" class="text-none" append-icon="mdi-arrow-right" to="/works">
               See all
             </v-btn>
           </div>
         </div>
         <v-row align="center">
           <v-col v-for="card in 3">
-            <v-hover v-slot="{ isHovering, props }" open-delay="200">
+            <v-hover v-slot="{ isHovering, props }" open-delay="100">
               <v-card
                 :elevation="isHovering ? 16 : 0"
                 :class="{ 'on-hover': isHovering }"
