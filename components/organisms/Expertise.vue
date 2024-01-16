@@ -80,12 +80,13 @@
             {{ item.text }}
           </v-tab>
         </v-tabs>
-        <v-row class="mt-10">
+        <v-row class="mt-12" align="center">
           <v-col
             class="d-flex justify-center"
             v-for="(skill, i) in skills"
             :key="i"
-            cols="3"
+            cols="4"
+            sm="3"
           >
             <div class="text-center">
               <div>
