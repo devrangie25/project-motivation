@@ -15,6 +15,10 @@ export default defineNuxtConfig({
     { path: "~/components/organisms", prefix: "o" },
     { path: "~/components/molecules", prefix: "m" },
   ],
+
+  modules: [
+    '@vueuse/nuxt',
+  ],
   
   devServer: {
     port: 8000
