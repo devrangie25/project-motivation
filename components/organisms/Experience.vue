@@ -1,17 +1,62 @@
 <template>
-  <div class="expertise-section-container pa-6">
+  <div
+    :class="`${
+      ['small', 'extra-small', 'super-small'].includes(getScreenType) ? 'mobile-' : ''
+    }expertise-section-container pa-6`"
+  >
     <v-container class="expertise-inner-section">
-      <div class="text-h4 mt-6 mb-n12">Job Experience</div>
-      <div class="timeline">
+      <div
+        class="text-h4 mt-6 mb-n12"
+      >
+        Job Experience
+      </div>
+      <!-- Medium and Large Screen -->
+      <div
+        v-if="!['small', 'extra-small', 'super-small'].includes(getScreenType)"
+        class="timeline"
+      >
         <v-timeline direction="horizontal" line-inset="12">
-          <v-timeline-item v-for="(experience, ind) in experiences" class="text-center">
+          <v-timeline-item
+            v-for="(experience, ind) in experiences"
+            class="text-center"
+          >
             <template v-slot:opposite>
               <span class="font-weight-bold"> {{ experience.company }} </span>
             </template>
             <div class="text-body-2">
-              {{ experience['job-title'] }} <br />
+              {{ experience["job-title"] }} <br />
               {{ experience.span }}
             </div>
+          </v-timeline-item>
+        </v-timeline>
+      </div>
+
+      <!-- Smaller Screen -->
+      <div class="small-screen-timeline" v-if="['small', 'extra-small', 'super-small'].includes(getScreenType)">
+        <v-timeline truncate-line="start" side="end">
+          <v-timeline-item
+            v-for="(experience, ind) in experiences"
+            :key="ind"
+            size="small"
+            width="100%"
+            :hide-opposite="['super-small'].includes(getScreenType)"
+          >
+            <template v-slot:opposite>
+              <span class="text-body-2"> {{ experience.span }} </span>
+            </template>
+            <v-alert>
+              <div class="text-body-2">
+                <div class="font-weight-bold">
+                  {{ experience.company }}
+                </div>
+                <div>
+                  {{ experience["job-title"] }}
+                </div>
+                <div v-if="['super-small'].includes(getScreenType)">
+                  {{ experience.span }}
+                </div>
+              </div>
+            </v-alert>
           </v-timeline-item>
         </v-timeline>
       </div>
@@ -20,86 +65,34 @@
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
 
 const runtimeConfig = useRuntimeConfig()
+const { getScreenType } = useScreenType()
 
-const fullTime = ref([
-  {
-    company: "Softype Philippines",
-    span: "Aug 2020 - Apr 2021",
-    "job-title": "Jr. Technical Consultant"
-  },
-  {
-    company: "CrewBloom Inc.",
-    span: "Apr 2021 - Apr 2022",
-    "job-title": "Jr. Web Developer"
-  },
-  {
-    company: "Xiklab Digital",
-    span: "Jan 2022 - Jun 2022",
-    "job-title": "PT Software Developer"
-  },
-  {
-    company: "Full Scale",
-    span: "Apr 2022 - Present",
-    "job-title": "Front End Developer"
-  },
-  {
-    company: "CrewBloom Inc",
-    span: "Sept 2022 - Nov 2022",
-    "job-title": "PT Front End Developer"
-  },
-  {
-    company: "Foodics",
-    span: "Aug 2022 - Dec 2023",
-    "job-title": "PT Software Engineer"
-  },
-  {
-    company: "Qmulus Solutions",
-    span: "Feb 2023 - Mar 2023",
-    "job-title": "PT Front End Developer"
-  },
-]);
+const experiencesStore = useExperienceStore()
 
-const partTime = ref([
-  {
-    company: "Softype Philippines",
-    span: "Aug 2020 - Apr 2021",
-    "job-title": "Jr. Technical Consultant"
-  },
-  {
-    company: "CrewBloom Inc.",
-    span: "Apr 2021 - Apr 2022",
-    "job-title": "Jr. Web Developer"
-  },
-  {
-    company: "Xiklab Digital",
-    span: "Jan 2022 - Jun 2022",
-    "job-title": "PT Software Developer"
-  },
-  {
-    company: "Full Scale",
-    span: "Apr 2022 - Present",
-    "job-title": "Front End Developer"
-  },
-  {
-    company: "CrewBloom Inc",
-    span: "Sept 2022 - Nov 2022",
-    "job-title": "PT Front End Developer"
-  },
-  {
-    company: "Qmulus Solutions",
-    span: "Feb 2023 - Mar 2023",
-    "job-title": "PT Front End Developer"
-  },
-]);
+const { jobExperiencesFullTime, jobExperiencesPartTime } = storeToRefs(experiencesStore)
 
 const experiences: any = computed(() => {
-  return runtimeConfig.public.NUXT_PUBLIC_FULL_TIME ? fullTime.value : partTime.value
+  if (getJobType.value === 'Foodics') {
+    return jobExperiencesPartTime.value
+  }
+
+  if (getJobType.value === 'Full-Time') {
+    return jobExperiencesFullTime.value
+  }
+})
+
+const getJobType: any = computed(() => {
+  return runtimeConfig.public.NUXT_PUBLIC_JOB_TYPE || 'Full-Time'
 })
 </script>
 
 <style scoped>
+.small-screen-timeline {
+  margin-top: 8rem;
+}
 .expertise-section-container {
   height: 80vh;
 }
@@ -111,5 +104,9 @@ const experiences: any = computed(() => {
 .timeline {
   height: 100%;
   display: flex;
+}
+
+.mobile-expertise-section-container {
+  height: 100%;
 }
 </style>

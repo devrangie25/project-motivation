@@ -1,11 +1,11 @@
 <template>
   <v-app>
     <v-layout>
-      <m-base-navigation />
-      <v-main>
-        <NuxtPage />
-      </v-main>
       <ClientOnly>
+        <m-base-navigation />
+        <v-main>
+          <NuxtPage />
+        </v-main>
         <m-base-footer />
       </ClientOnly>
     </v-layout>

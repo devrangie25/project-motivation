@@ -2,18 +2,18 @@
   <div class="expertise-section-container pa-6">
     <v-container class="expertise-inner-section">
       <div
-        v-if="!['small', 'extra-small'].includes(getScreenType)"
-        class="text-h4 mt-6 mb-n12"
+        class="text-h4 mt-6"
       >
-        Skills
+        Skills  
       </div>
+      <!-- For Medium and Larger Screen -->
       <v-row
         class="row-container"
         align="center"
-        v-if="!['small', 'extra-small'].includes(getScreenType)"
+        v-if="!['small', 'extra-small', 'super-small'].includes(getScreenType)"
       >
         <v-col cols="4">
-          <div v-for="(item, i) in items" :key="i" class="my-6">
+          <div v-for="(item, i) in techStacks" :key="i" class="my-6">
             <v-hover
               v-slot="{ isHovering, props }"
               @update:model-value="onHoverElement($event, item)"
@@ -67,7 +67,8 @@
         </v-col>
       </v-row>
 
-      <div v-else>
+      <!-- For Smaller Screen -->
+      <div v-else :class="['small', 'extra-small', 'super-small'].includes(getScreenType) ? 'mt-12' : ''">
         <v-tabs
           v-model="tab"
           color="deep-purple-accent-4"
@@ -76,16 +77,17 @@
           show-arrows
           @update:model-value="onChangeTab($event, tab)"
         >
-          <v-tab v-for="(item, ind) in items" :value="item.value">
+          <v-tab v-for="(item, ind) in techStacks" :value="item.value">
             {{ item.text }}
           </v-tab>
         </v-tabs>
-        <v-row class="mt-10">
+        <v-row class="mt-12" align="center">
           <v-col
             class="d-flex justify-center"
             v-for="(skill, i) in skills"
             :key="i"
-            cols="3"
+            cols="4"
+            sm="3"
           >
             <div class="text-center">
               <div>
@@ -109,79 +111,13 @@
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
+
+const expertiseStore = useExpertiseStore()
+const { skills, techStacks } = storeToRefs(expertiseStore)
 const { getScreenType } = useScreenType()
 
 const tab = ref(null)
-
-const items = [
-  { text: "Front-end", value: "front-end" },
-  { text: "Back-end", value: "back-end" },
-  { text: "Databases", value: "databases" },
-  { text: "Tools", value: "tools" },
-]
-
-const skills = [
-  {
-    name: "HTML",
-    icon: "html-5.png",
-    category: "front-end",
-  },
-  {
-    name: "CSS",
-    icon: "css-3.png",
-    category: "front-end",
-  },
-  {
-    name: "Vuetify",
-    icon: "vuetify.png",
-    category: "front-end",
-  },
-  {
-    name: "Bootstrap",
-    icon: "bootstrap.svg",
-    category: "front-end",
-  },
-  {
-    name: "JavaScript",
-    icon: "js.png",
-    category: "front-end",
-  },
-  {
-    name: "VueJs",
-    icon: "vue.png",
-    category: "front-end",
-  },
-  {
-    name: "NuxtJs",
-    icon: "nuxt.png",
-    category: "front-end",
-  },
-  {
-    name: "NodeJs",
-    icon: "node.png",
-    category: "back-end",
-  },
-  {
-    name: "MySQL",
-    icon: "mysql.png",
-    category: "databases",
-  },
-  {
-    name: "Git",
-    icon: "git.png",
-    category: "tools",
-  },
-  {
-    name: "Jira",
-    icon: "jira.png",
-    category: "tools",
-  },
-  {
-    name: "Trello",
-    icon: "trello.png",
-    category: "tools",
-  },
-]
 
 const hoveredSkill = ref("")
 

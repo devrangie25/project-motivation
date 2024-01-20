@@ -24,7 +24,7 @@
             </div>
           </div>
         </v-col>
-        <v-col v-if="getScreenType !== 'extra-small'" class="d-flex justify-center">
+        <v-col v-if="!['extra-small', 'super-small', 'small'].includes(getScreenType)" class="d-flex justify-center">
           <img
             class="big-head"
             src="/img/bighead-2.svg"
@@ -46,7 +46,7 @@ const getName = computed(() => {
 })
 
 const getLandingImgWidth = computed(() => {
-  if (['extra-small', 'small'].includes(getScreenType.value)) {
+  if (['extra-small', 'small', 'super-small'].includes(getScreenType.value)) {
     return '300'
   } if (['medium'].includes(getScreenType.value)) {
     return '400'

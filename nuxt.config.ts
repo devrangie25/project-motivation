@@ -18,7 +18,17 @@ export default defineNuxtConfig({
 
   modules: [
     '@vueuse/nuxt',
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: ['defineStore', 'acceptHMRUpdate']
+      }
+    ]
   ],
+
+  imports: {
+    dirs: ['stores']
+  },
   
   devServer: {
     port: 8000
@@ -31,7 +41,7 @@ export default defineNuxtConfig({
     public: {
       NUXT_PUBLIC_NAME: process.env.NUXT_PUBLIC_NAME || 'Rangie Laurente',
       NUXT_PUBLIC_LANDING_DESCRIPTION: process.env.NUXT_PUBLIC_LANDING_DESCRIPTION || '',
-      NUXT_PUBLIC_FULL_TIME: process.env.NUXT_PUBLIC_FULL_TIME === 'true'
+      NUXT_PUBLIC_JOB_TYPE: process.env.NUXT_PUBLIC_JOB_TYPE || 'Full-Time'
     }
   },
   

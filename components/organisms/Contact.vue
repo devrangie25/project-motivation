@@ -14,10 +14,10 @@
           <v-card-text>
             <v-row>
               <v-col cols="12" md="8">
-                <div class="text-h4 mb-4 text-break">
+                <div :class="`text-${['super-small', 'extra-small'].includes(getScreenType) ? 'h5' : 'h4'} mb-4 text-break`">
                   Let's work together on your next project
                 </div>
-                <div class="subtitle-1 text-break">
+                <div :class="`${['super-small', 'extra-small'].includes(getScreenType) ? 'text-caption': 'subtitle-1'} text-break`">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa
                   doloribus officiis eligendi, nam sint numquam aspernatur
                 </div>
@@ -46,7 +46,10 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { getScreenType } = useScreenType()
+
+</script>
 
 <style scoped>
 .contact-section-container {
