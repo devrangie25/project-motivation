@@ -1,7 +1,7 @@
 <template>
   <div class="works-section-container pa-6">
     <v-container class="works-inner-section">
-      <div class="d-flex justify-space-between align-center mt-6 mb-n12">
+      <div class="d-flex justify-space-between align-center mt-6 mb-12">
         <div class="text-h4">Works</div>
         <div>
           <v-btn
@@ -14,35 +14,45 @@
           </v-btn>
         </div>
       </div>
+      <!-- For Medium and Larger Screen -->
       <v-row
-        v-if="!['small', 'extra-small'].includes(getScreenType)"
-        align="center"
+        v-if="!['small', 'extra-small', 'super-small'].includes(getScreenType)"
       >
-        <v-col cols="4" v-for="card in 3">
+        <v-col cols="6" v-for="(project, ind) in projects">
           <v-hover v-slot="{ isHovering, props }" open-delay="100">
             <v-card
               :elevation="isHovering ? 16 : 0"
               :class="{ 'on-hover': isHovering }"
               v-bind="props"
-              class="pa-6"
+              class="pa-4"
               color="light"
-              height="400"
+              height="250"
             >
               <template v-slot:prepend>
-                <v-icon icon="mdi-monitor" size="50"></v-icon>
+                <v-icon icon="mdi-monitor" size="35"></v-icon>
               </template>
 
-              <v-card-title class="mt-6"> Core CrewBloom </v-card-title>
+              <v-card-title> {{ project.title }} </v-card-title>
 
-              <v-card-text class="mt-2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod.
+              <v-card-text>
+                <div>
+                  {{ project.description }}
+                </div>
+                <div class="learn-more-container mt-4">
+                  <span
+                    class="font-weight-regular learn-more text-none"
+                    @click="onClickLearnMore"
+                  >
+                    Learn more <v-icon size="18"> mdi-arrow-right </v-icon>
+                  </span>
+                </div>
               </v-card-text>
             </v-card>
           </v-hover>
         </v-col>
       </v-row>
 
+      <!-- For Smaller Screen -->
       <v-row v-else align="center">
         <v-col cols="12">
           <v-slide-group v-model="model" center-active show-arrows>
@@ -54,7 +64,7 @@
               <v-card
                 :elevation="isSelected ? 16 : 0"
                 :color="'light'"
-                class="ma-4 pa-6"
+                class="ma-4 pa-4"
                 width="300"
                 height="400"
                 @click="toggle"
@@ -79,9 +89,19 @@
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
+const worksStore = useWorksStore()
+
+const { projects } = storeToRefs(worksStore)
+
 const { getScreenType } = useScreenType()
+const router = useRouter()
 
 const model = ref(null)
+
+const onClickLearnMore = () => {
+  router.push("/works/1")
+}
 </script>
 
 <style scoped>
@@ -90,12 +110,16 @@ const model = ref(null)
   margin: -5rem 0 0 0;
   background: #ebebeb;
 }
-
 .works-inner-section {
   height: 100%;
 }
+.learn-more {
+  cursor: pointer;
+  position: absolute;
+            bottom: 0px;
+}
 
-.v-row {
-  height: 100%;
+.learn-more-container {
+  position: relative;
 }
 </style>

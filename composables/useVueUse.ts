@@ -4,6 +4,10 @@ export const useScreenType = () => {
   const { width } = useWindowSize()
 
   const getScreenType = computed(() => {
+    if (width.value < 450) {
+      console.log("Super Small Screen")
+      return "super-small"
+    }
     if (width.value < 600) {
       console.log("Extra Small Screen")
       return "extra-small"
