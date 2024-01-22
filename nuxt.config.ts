@@ -10,6 +10,10 @@ export default defineNuxtConfig({
     transpile: ["vuetify", "vue-scroll"],
   },
 
+  plugins: [
+    '~/plugins/vue-kinesis'
+  ],
+
   components: [
     "~/components",
     { path: "~/components/organisms", prefix: "o" },
@@ -23,7 +27,8 @@ export default defineNuxtConfig({
       {
         autoImports: ['defineStore', 'acceptHMRUpdate']
       }
-    ]
+    ],
+    'v-wave/nuxt',
   ],
 
   imports: {

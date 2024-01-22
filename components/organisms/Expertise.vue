@@ -1,11 +1,7 @@
 <template>
   <div class="expertise-section-container pa-6">
     <v-container class="expertise-inner-section">
-      <div
-        class="text-h4 mt-6"
-      >
-        Skills  
-      </div>
+      <div class="text-h4 mt-6">Skills</div>
       <!-- For Medium and Larger Screen -->
       <v-row
         class="row-container"
@@ -48,27 +44,42 @@
               :key="i"
               cols="3"
             >
-              <div class="text-center">
-                <div>
-                  <img
-                    :class="
-                      hoveredSkill !== skill.category ? 'gray-scale-img' : ''
-                    "
-                    :src="`/img/${skill.icon}`"
-                    :width="['medium'].includes(getScreenType) ? '40' : '60'"
-                  />
-                </div>
-                <span class="text-caption">
-                  {{ skill.name }}
-                </span>
-              </div>
+              <kinesis-container>
+                <kinesis-element type="depth" :strength="15">
+                  <div class="text-center">
+                    <div>
+                      <img
+                        :class="
+                          hoveredSkill !== skill.category
+                            ? 'gray-scale-img'
+                            : ''
+                        "
+                        :src="`/img/${skill.icon}`"
+                        :width="
+                          ['medium'].includes(getScreenType) ? '40' : '60'
+                        "
+                      />
+                    </div>
+                    <span class="text-caption">
+                      {{ skill.name }}
+                    </span>
+                  </div>
+                </kinesis-element>
+              </kinesis-container>
             </v-col>
           </v-row>
         </v-col>
       </v-row>
 
       <!-- For Smaller Screen -->
-      <div v-else :class="['small', 'extra-small', 'super-small'].includes(getScreenType) ? 'mt-12' : ''">
+      <div
+        v-else
+        :class="
+          ['small', 'extra-small', 'super-small'].includes(getScreenType)
+            ? 'mt-12'
+            : ''
+        "
+      >
         <v-tabs
           v-model="tab"
           color="deep-purple-accent-4"
@@ -89,20 +100,24 @@
             cols="4"
             sm="3"
           >
-            <div class="text-center">
-              <div>
-                <img
-                  :class="
-                    hoveredSkill !== skill.category ? 'gray-scale-img' : ''
-                  "
-                  :src="`/img/${skill.icon}`"
-                  width="30"
-                />
-              </div>
-              <span class="text-caption">
-                {{ skill.name }}
-              </span>
-            </div>
+            <kinesis-container>
+              <kinesis-element type="depth" :strength="15">
+                <div class="text-center">
+                  <div>
+                    <img
+                      :class="
+                        hoveredSkill !== skill.category ? 'gray-scale-img' : ''
+                      "
+                      :src="`/img/${skill.icon}`"
+                      width="30"
+                    />
+                  </div>
+                  <span class="text-caption">
+                    {{ skill.name }}
+                  </span>
+                </div>
+              </kinesis-element>
+            </kinesis-container>
           </v-col>
         </v-row>
       </div>
@@ -111,7 +126,7 @@
 </template>
 
 <script setup lang="ts">
-import { storeToRefs } from 'pinia';
+import { storeToRefs } from "pinia"
 
 const expertiseStore = useExpertiseStore()
 const { skills, techStacks } = storeToRefs(expertiseStore)

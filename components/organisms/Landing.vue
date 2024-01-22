@@ -69,7 +69,9 @@ const getLandingDescription = computed(() => {
 }
 .landing-section-container {
   height: 80vh;
-  background: #ebebeb;
+  background-image: url('/img/scatter-bg.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .landing-inner-section {
   height: 100%;
