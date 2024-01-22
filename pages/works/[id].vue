@@ -3,54 +3,59 @@
     <v-container>
       <v-row class="py-12">
         <v-col cols="12" md="8">
-          <v-card flat height="500" color="#ebebeb" class="pa-6">
-            Card Here
+          <v-card
+            flat
+            variant="outlined"
+            height="500"
+            color="#ebebeb"
+            :image="`/img/${getProject?.imgUrl}.png`"
+          >
           </v-card>
         </v-col>
         <v-col cols="12" md="4">
-          <div class="text-body-1 mb-4">
+          <div v-if="getProject?.title" class="text-body-1 mb-4">
             <span class="font-weight-bold"> Project Name: </span>
             <span>
-              Web App Name
+              {{ getProject?.title }}
             </span>
           </div>
 
-          <div class="text-body-1 mb-4">
+          <div v-if="getProject?.description" class="text-body-1 mb-4">
             <span class="font-weight-bold"> Description: </span>
             <span>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ut
-              quis illo voluptas obcaecati debitis.
+              {{ getProject?.description }}
             </span>
           </div>
 
-          <div class="mb-4 text-body-1">
+          <div v-if="getProject?.repo" class="mb-4 text-body-1">
             <span class="font-weight-bold"> Repo: </span>
             <a href="https://github.com/vuejs" class="text-decoration-none">
-              https://github.com/vuejs</a
+              {{ getProject?.repo }}</a
             >
           </div>
 
-          <div class="mb-4 text-body-1">
+          <div v-if="getProject?.link" class="mb-4 text-body-1">
             <span class="font-weight-bold"> Link: </span>
             <a
-              href="https://project-motivation.vercel.app/"
+              :href="getProject?.link || '/'"
               class="text-decoration-none"
+              target="_blank"
             >
-              https://project-motivation.vercel.app/
+              {{ getProject?.link }}
             </a>
           </div>
 
-          <div class="text-body-1 mb-4">
+          <div v-if="getProject?.stacks" class="text-body-1 mb-4">
             <span class="font-weight-bold"> Tech Stack: </span>
             <div class="d-flex mt-4">
               <v-card
-                v-for="i in 4"
+                v-for="stack in getProject?.stacks"
                 flat
                 height="60"
                 width="60"
-                class="pa-2 text-body-2 mr-4"
+                class="pa-2 text-body-2 mr-4 d-flex align-center"
               >
-                <img src="/img/vue.png" width="100%" />
+                <img :src="`/img/${stack}.png`" width="100%" />
               </v-card>
             </div>
           </div>
@@ -61,5 +66,16 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
 const { getScreenType } = useScreenType()
+
+const worksStore = useWorksStore()
+
+const getProject = computed(() => {
+  return worksStore.getProjectById(+route.params.id)
+})
+
+onMounted(() => {
+  console.log("getProject", getProject.value)
+})
 </script>

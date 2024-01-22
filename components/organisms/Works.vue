@@ -19,6 +19,7 @@
         v-if="!['small', 'extra-small', 'super-small'].includes(getScreenType)"
       >
         <v-col cols="6" v-for="(project, ind) in projects">
+          
           <v-hover v-slot="{ isHovering, props }" open-delay="100">
             <v-card
               :elevation="isHovering ? 16 : 0"
@@ -27,6 +28,16 @@
               class="pa-4"
               color="light"
               height="250"
+              v-wave="{
+                color: '#4ba885',
+                initialOpacity: 0.5,
+                finalOpacity: 0.5,
+                easing: 'ease-in',
+                dissolveDuration: 1,
+                duration: 2,
+                trigger: 'card'
+              }"
+              v-wave-trigger:card
             >
               <template v-slot:prepend>
                 <v-icon icon="mdi-monitor" size="35"></v-icon>
@@ -41,7 +52,7 @@
                 <div class="learn-more-container mt-4">
                   <span
                     class="font-weight-regular learn-more text-none"
-                    @click="onClickLearnMore"
+                    @click="onClickLearnMore(project.id)"
                   >
                     Learn more <v-icon size="18"> mdi-arrow-right </v-icon>
                   </span>
@@ -89,9 +100,9 @@
 </template>
 
 <script setup lang="ts">
-import { storeToRefs } from 'pinia';
-const worksStore = useWorksStore()
+import { storeToRefs } from "pinia"
 
+const worksStore = useWorksStore()
 const { projects } = storeToRefs(worksStore)
 
 const { getScreenType } = useScreenType()
@@ -99,8 +110,8 @@ const router = useRouter()
 
 const model = ref(null)
 
-const onClickLearnMore = () => {
-  router.push("/works/1")
+const onClickLearnMore = (id: any) => {
+  router.push(`/works/${id}`)
 }
 </script>
 
@@ -116,10 +127,6 @@ const onClickLearnMore = () => {
 .learn-more {
   cursor: pointer;
   position: absolute;
-            bottom: 0px;
-}
-
-.learn-more-container {
-  position: relative;
+  bottom: 2rem;
 }
 </style>

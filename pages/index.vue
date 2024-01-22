@@ -4,7 +4,7 @@
     <o-expertise />
     <o-works />
     <o-experience />
-    <o-contact />
+    <o-contact v-if="false" />
   </div>
 </template>
 
