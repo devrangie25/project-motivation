@@ -6,9 +6,9 @@ export const useWorksStore = defineStore("works", () => {
       description:
         "This Web Application is where company HR and Admin do the company works like, invoicing, managing clients, employees and applicants.",
       stacks: ["nuxt", "vuetify", "node"],
-      link: 'https://core.crewbloom.com/',
-      repo: '',
-      imgUrl: 'core-crewbloom',
+      link: "https://core.crewbloom.com/",
+      repo: "",
+      imgUrl: "core-crewbloom",
       icon: "mdi-home",
     },
     {
@@ -17,9 +17,9 @@ export const useWorksStore = defineStore("works", () => {
       description:
         "A website for one of the leading medicine brand in PH where you can see all medicine products and health information.",
       stacks: ["vue", "tailwind", "laravel"],
-      link: 'https://www.ritemed.com.ph/',
-      repo: '',
-      imgUrl: 'rite-med',
+      link: "https://www.ritemed.com.ph/",
+      repo: "",
+      imgUrl: "rite-med",
       icon: "",
     },
     {
@@ -28,9 +28,9 @@ export const useWorksStore = defineStore("works", () => {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
       stacks: ["nuxt", "vuetify"],
-      link: 'https://qmulus-front-end-assessment.netlify.app/',
-      repo: '',
-      imgUrl: 'qmulus-dashboard',
+      link: "https://qmulus-front-end-assessment.netlify.app/",
+      repo: "",
+      imgUrl: "qmulus-dashboard",
       icon: "",
     },
     {
@@ -39,20 +39,101 @@ export const useWorksStore = defineStore("works", () => {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
       stacks: ["nuxt", "vuetify", "node"],
-      link: 'https://bits-dev.netlify.app/',
-      repo: '',
-      imgUrl: 'bits',
+      link: "https://bits-dev.netlify.app/",
+      repo: "",
+      imgUrl: "bits",
+      icon: "",
+    },
+    {
+      id: 5,
+      title: "HR Dashboard",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      stacks: ["nuxt", "vuetify"],
+      link: "https://vue-dashboards-design.vercel.app/",
+      repo: "",
+      imgUrl: "hr-dashboard",
+      icon: "",
+    },
+    {
+      id: 6,
+      title: "CrewBloom Invoicing Hub",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      stacks: ["nuxt", "vuetify"],
+      link: "https://vue-dashboards-design.vercel.app/",
+      repo: "",
+      imgUrl: "",
+      icon: "",
+    },
+    {
+      id: 7,
+      title: "CrewBloom Applicant Hub",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      stacks: ["nuxt", "vuetify"],
+      link: "https://vue-dashboards-design.vercel.app/",
+      repo: "",
+      imgUrl: "",
+      icon: "",
+    },
+  ])
+
+  const projectsToDisplay = ref([
+    {
+      id: 1,
+      title: "Core CrewBloom",
+      description:
+        "This Web Application is where company HR and Admin do the company works like, invoicing, managing clients, employees and applicants.",
+      stacks: ["nuxt", "vuetify", "node"],
+      link: "https://core.crewbloom.com/",
+      repo: "",
+      imgUrl: "core-crewbloom",
+      icon: "mdi-home",
+    },
+    {
+      id: 2,
+      title: "RiteMed",
+      description:
+        "A website for one of the leading medicine brand in PH where you can see all medicine products and health information.",
+      stacks: ["vue", "tailwind", "laravel"],
+      link: "https://www.ritemed.com.ph/",
+      repo: "",
+      imgUrl: "rite-med",
+      icon: "",
+    },
+    {
+      id: 3,
+      title: "Qmulus Dashboard",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      stacks: ["nuxt", "vuetify"],
+      link: "https://qmulus-front-end-assessment.netlify.app/",
+      repo: "",
+      imgUrl: "qmulus-dashboard",
+      icon: "",
+    },
+    {
+      id: 4,
+      title: "Bantayan Trucking Services",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      stacks: ["nuxt", "vuetify", "node"],
+      link: "https://bits-dev.netlify.app/",
+      repo: "",
+      imgUrl: "bits",
       icon: "",
     },
   ])
 
   const getProjectById = (id: any) => {
-    return projects.value.find(project => project.id === id)
+    return projects.value.find((project) => project.id === id)
   }
 
   return {
     projects,
-    getProjectById
+    projectsToDisplay,
+    getProjectById,
   }
 })
 

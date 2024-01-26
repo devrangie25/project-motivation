@@ -18,7 +18,7 @@
       <v-row
         v-if="!['small', 'extra-small', 'super-small'].includes(getScreenType)"
       >
-        <v-col cols="6" v-for="(project, ind) in projects">
+        <v-col cols="6" v-for="project in projectsToDisplay" :key="project.title">
           
           <v-hover v-slot="{ isHovering, props }" open-delay="100">
             <v-card
@@ -68,8 +68,8 @@
         <v-col cols="12">
           <v-slide-group v-model="model" center-active show-arrows>
             <v-slide-group-item
-              v-for="n in 4"
-              :key="n"
+              v-for="project in projectsToDisplay"
+              :key="project.title"
               v-slot="{ isSelected, toggle }"
             >
               <v-card
@@ -84,11 +84,10 @@
                   <v-icon icon="mdi-monitor" size="50"></v-icon>
                 </template>
 
-                <v-card-title class="mt-6"> Core CrewBloom </v-card-title>
+                <v-card-title class="mt-6"> {{ project.title }} </v-card-title>
 
                 <v-card-text class="mt-2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod.
+                  {{ project.description }}
                 </v-card-text>
               </v-card>
             </v-slide-group-item>
@@ -103,7 +102,7 @@
 import { storeToRefs } from "pinia"
 
 const worksStore = useWorksStore()
-const { projects } = storeToRefs(worksStore)
+const { projectsToDisplay } = storeToRefs(worksStore)
 
 const { getScreenType } = useScreenType()
 const router = useRouter()

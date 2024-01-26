@@ -5,19 +5,39 @@
         <v-col
           cols="12"
           sm="6"
-          md="4"
+          md="6"
+          lg="4"
+          xl="3"
           v-for="(project, ind) in projects"
           :key="project.title"
         >
-          <v-card
-            variant="outlined"
-            flat
-            height="300"
-            color="#ebebeb"
-            :image="`/img/${project?.imgUrl}.png`"
-            :to="`works/${project.id}`"
-          >
-          </v-card>
+          <v-hover v-slot="{ isHovering, props }">
+            <v-card
+              v-bind="props"
+              variant="outlined"
+              flat
+              height="300"
+              color="#ebebeb"
+              :to="`works/${project.id}`"
+
+            >
+              <v-img
+                height="100%"
+                :cover="project.imgUrl ? true : false"
+                :src="`/img/${project.imgUrl ? project.imgUrl : 'laptop'}.png`"
+              >
+                <v-expand-transition>
+                  <div
+                    v-if="isHovering"
+                    class="d-flex transition-fast-in-fast-out bg-primary v-card--reveal text-h6 align-center justify-center"
+                    style="height: 100%"
+                  >
+                    {{ project.title }}
+                  </div>
+                </v-expand-transition>
+              </v-img>
+            </v-card>
+          </v-hover>
         </v-col>
       </v-row>
     </v-container>
