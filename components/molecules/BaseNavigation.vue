@@ -1,5 +1,10 @@
 <template>
-  <v-app-bar density="prominent" :color="getNavColor" flat class="app-bar-container">
+  <v-app-bar
+    density="prominent"
+    :color="getNavColor"
+    flat
+    class="app-bar-container"
+  >
     <template v-slot:prepend>
       <span class="font-weight-bold text-h6"> Motivation </span>
     </template>
@@ -11,9 +16,12 @@
         class="text-capitalize ml-4 rounded-xl"
         color="primary"
         variant="flat"
-        width="100"
-        >Hire Me</v-btn
+        width="120"
+        target="_blank"
+        href="/pdf/laurente_rangie_motivation_resume.pdf"
       >
+        <span class="text-white"> Hire Me </span>
+      </v-btn>
     </template>
   </v-app-bar>
 </template>
@@ -21,16 +29,15 @@
 <script setup lang="ts">
 const route = useRoute()
 
-console.log('route', route)
+console.log("route", route)
 
 const getNavColor = computed(() => {
-  if (route.path !== '/') {
-    return '#ebebeb'
+  if (route.path !== "/") {
+    return "#ebebeb"
   } else {
-    return '#60cd8f'
+    return "#00cc8e"
   }
 })
-
 </script>
 
 <style scoped>

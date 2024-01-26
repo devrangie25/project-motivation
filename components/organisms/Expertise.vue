@@ -44,28 +44,29 @@
               :key="i"
               cols="3"
             >
+            <v-hover
+              v-slot="{ isHovering, props }"
+            >
               <kinesis-container>
                 <kinesis-element type="depth" :strength="15">
-                  <div class="text-center">
-                    <div>
-                      <img
-                        :class="
-                          hoveredSkill !== skill.category
-                            ? 'gray-scale-img'
-                            : ''
-                        "
-                        :src="`/img/${skill.icon}`"
-                        :width="
-                          ['medium'].includes(getScreenType) ? '40' : '60'
-                        "
-                      />
+                    <div class="text-center">
+                      <div>
+                        <img
+                          v-bind="props"
+                          :class="(hoveredSkill !== skill.category && !isHovering) ? 'gray-scale-img' : ''"
+                          :src="`/img/${skill.icon}`"
+                          :width="
+                            ['medium'].includes(getScreenType) ? '40' : '60'
+                          "
+                        />
+                      </div>
+                      <span class="text-caption">
+                        {{ skill.name }}
+                      </span>
                     </div>
-                    <span class="text-caption">
-                      {{ skill.name }}
-                    </span>
-                  </div>
-                </kinesis-element>
-              </kinesis-container>
+                  </kinesis-element>
+                </kinesis-container>
+              </v-hover>
             </v-col>
           </v-row>
         </v-col>

@@ -5,6 +5,11 @@ export const useExperienceStore = defineStore("experiences", () => {
 
   const jobExperiencesFullTime = ref([
     {
+      company: "Increment Technologies",
+      span: "Jun 2020 - Aug 2020",
+      "job-title": "Intern/Volunteer Web Developer",
+    },
+    {
       company: "Softype Philippines",
       span: "Aug 2020 - Apr 2021",
       "job-title": "Jr. Technical Consultant",
@@ -23,11 +28,6 @@ export const useExperienceStore = defineStore("experiences", () => {
       company: "Full Scale",
       span: "Apr 2022 - Present",
       "job-title": "Front End Developer",
-    },
-    {
-      company: "Foodics",
-      span: "Aug 2022 - Dec 2023",
-      "job-title": "PT Front End Developer",
     },
     {
       company: "CrewBloom Inc",

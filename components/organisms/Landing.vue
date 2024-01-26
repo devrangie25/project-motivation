@@ -25,12 +25,24 @@
           </div>
         </v-col>
         <v-col v-if="!['extra-small', 'super-small', 'small'].includes(getScreenType)" class="d-flex justify-center">
-          <img
+          <!-- <img
             class="big-head"
             src="/img/bighead-2.svg"
             alt="big-head-icon-img"
             :width="getLandingImgWidth"
-          />
+          /> -->
+          <v-hover
+            v-slot="{ isHovering, props }"
+            open-delay="200"
+          >
+            <img
+              v-bind="props"
+              :class="{ 'big-head' : !isHovering }"
+              :src="`/img/${isHovering ? 'my-img-circle.png' : 'bighead-2.svg'}`"
+              alt="big-head-icon-img"
+              :width="isHovering ? getLandingMyImgWidth : getLandingImgWidth"
+            />
+          </v-hover>
         </v-col>
       </v-row>
     </v-container>
@@ -52,6 +64,16 @@ const getLandingImgWidth = computed(() => {
     return '400'
   } else {
     return '500'
+  }
+})
+
+const getLandingMyImgWidth = computed(() => {
+  if (['extra-small', 'small', 'super-small'].includes(getScreenType.value)) {
+    return '200'
+  } if (['medium'].includes(getScreenType.value)) {
+    return '300'
+  } else {
+    return '350'
   }
 })
 

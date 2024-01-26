@@ -17,7 +17,7 @@
     </div>
 
     <div class="subtitle-1 my-4">
-      Project Motivation 2024 | <span class="font-weight-bold"> Dev Rangie </span>
+      Project Motivation 2024 | Made with NuxtJs + Vuetify | <span class="font-weight-bold"> Dev Rangie </span>
     </div>
   </v-footer>
 </template>

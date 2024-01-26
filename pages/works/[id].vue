@@ -10,6 +10,9 @@
             color="#ebebeb"
             :image="`/img/${getProject?.imgUrl}.png`"
           >
+            <v-card-text class="text-center">
+              <img v-if="!getProject?.imgUrl" :src="`/img/laptop.png`">
+            </v-card-text>
           </v-card>
         </v-col>
         <v-col cols="12" md="4">
@@ -79,3 +82,13 @@ onMounted(() => {
   console.log("getProject", getProject.value)
 })
 </script>
+
+<style scoped>
+/* .v-img__img--cover {
+  object-fit: cover;
+} */
+
+.work-card {
+  object-fit: contain;
+}
+</style>
