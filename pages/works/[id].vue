@@ -70,8 +70,6 @@
 
 <script setup lang="ts">
 const route = useRoute()
-const { getScreenType } = useScreenType()
-
 const worksStore = useWorksStore()
 
 const getProject = computed(() => {

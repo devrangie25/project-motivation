@@ -1,6 +1,6 @@
 <template>
   <v-footer color="#ebebeb" app class="text-center d-flex flex-column">
-    <div>
+    <div v-if="false">
       <v-btn
         v-for="icon in icons"
         :key="icon"

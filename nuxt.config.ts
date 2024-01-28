@@ -1,18 +1,27 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      link: [
+        {
+          rel: "icon",
+          type: "image/svg",
+          href: "/img/big-head-1.svg",
+        },
+      ],
+    },
+  },
   devtools: { enabled: true },
   css: [
     "vuetify/lib/styles/main.sass",
     "@mdi/font/css/materialdesignicons.min.css",
-    'assets/css/app.css'
+    "assets/css/app.css",
   ],
   build: {
     transpile: ["vuetify", "vue-scroll"],
   },
 
-  plugins: [
-    '~/plugins/vue-kinesis'
-  ],
+  plugins: ["~/plugins/vue-kinesis"],
 
   components: [
     "~/components",
@@ -21,35 +30,36 @@ export default defineNuxtConfig({
   ],
 
   modules: [
-    '@vueuse/nuxt',
+    "@vueuse/nuxt",
     [
-      '@pinia/nuxt',
+      "@pinia/nuxt",
       {
-        autoImports: ['defineStore', 'acceptHMRUpdate']
-      }
+        autoImports: ["defineStore", "acceptHMRUpdate"],
+      },
     ],
-    'v-wave/nuxt',
+    "v-wave/nuxt",
   ],
 
   imports: {
-    dirs: ['stores']
+    dirs: ["stores"],
   },
-  
+
   devServer: {
-    port: 8000
+    port: 8000,
   },
-  
+
   runtimeConfig: {
     // The private keys which are only available within server-side
     // api-key: 'test-api-key'
     // Keys within public, will be also exposed to the client-side
     public: {
-      NUXT_PUBLIC_NAME: process.env.NUXT_PUBLIC_NAME || 'Rangie Laurente',
-      NUXT_PUBLIC_LANDING_DESCRIPTION: process.env.NUXT_PUBLIC_LANDING_DESCRIPTION || '',
-      NUXT_PUBLIC_JOB_TYPE: process.env.NUXT_PUBLIC_JOB_TYPE || 'Full-Time'
-    }
+      NUXT_PUBLIC_NAME: process.env.NUXT_PUBLIC_NAME || "Rangie Laurente",
+      NUXT_PUBLIC_LANDING_DESCRIPTION:
+        process.env.NUXT_PUBLIC_LANDING_DESCRIPTION || "",
+      NUXT_PUBLIC_JOB_TYPE: process.env.NUXT_PUBLIC_JOB_TYPE || "Full-Time",
+    },
   },
-  
+
   vite: {
     define: {
       "process.env.DEBUG": false,
@@ -62,4 +72,4 @@ export default defineNuxtConfig({
       },
     },
   },
-});
+})
