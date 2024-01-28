@@ -3,8 +3,8 @@ export const useWorksStore = defineStore("works", () => {
     {
       id: 1,
       title: "Core CrewBloom",
-      description:
-        "This Web Application is where company HR and Admin do the company works like, invoicing, managing clients, employees and applicants.",
+      description: `A Web Application is where company HR and Admin do the company works like, invoicing, managing clients, employees and applicants. 
+      I created almost the entire Front End of this Web App.`,
       stacks: ["nuxt", "vuetify", "node"],
       link: "https://core.crewbloom.com/",
       repo: "",
@@ -14,9 +14,9 @@ export const useWorksStore = defineStore("works", () => {
     {
       id: 2,
       title: "RiteMed",
-      description:
-        "A website for one of the leading medicine brand in PH where you can see all medicine products and health information.",
-      stacks: ["vue", "tailwind", "laravel"],
+      description: `A website for one of the leading medicine brand in PH where you can see all medicine products, health information and etc. 
+      I was one of the Front End Developer who developed some of the pages in the website.`,
+      stacks: ["vue", "tailwind", "october-cms"],
       link: "https://www.ritemed.com.ph/",
       repo: "",
       imgUrl: "rite-med",
@@ -25,8 +25,7 @@ export const useWorksStore = defineStore("works", () => {
     {
       id: 3,
       title: "Qmulus Dashboard",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      description: `This is a Static Dasbhoard with Analytics Diagram I created when I applied as a Part Time Front End Developer in the company.`,
       stacks: ["nuxt", "vuetify"],
       link: "https://qmulus-front-end-assessment.netlify.app/",
       repo: "",
@@ -36,8 +35,7 @@ export const useWorksStore = defineStore("works", () => {
     {
       id: 4,
       title: "Bantayan Trucking Services",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      description: `A Web Application I made for college students, it's a Web Application for a Trucking Services which tracks item delivery.`,
       stacks: ["nuxt", "vuetify", "node"],
       link: "https://bits-dev.netlify.app/",
       repo: "",
@@ -47,8 +45,7 @@ export const useWorksStore = defineStore("works", () => {
     {
       id: 5,
       title: "HR Dashboard",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      description: `A Static HR Dashboard I created just for fun.`,
       stacks: ["nuxt", "vuetify"],
       link: "https://vue-dashboards-design.vercel.app/",
       repo: "",
@@ -58,10 +55,9 @@ export const useWorksStore = defineStore("works", () => {
     {
       id: 6,
       title: "CrewBloom Invoicing Hub",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-      stacks: ["nuxt", "vuetify"],
-      link: "https://vue-dashboards-design.vercel.app/",
+      description: `A Web Application for managing Invoicing of the company. This is where the accounting team will create invoice for their clients. Also using third party integration of payment gateway.`,
+      stacks: ["nuxt", "vuetify", "laravel"],
+      link: "",
       repo: "",
       imgUrl: "",
       icon: "",
@@ -69,10 +65,9 @@ export const useWorksStore = defineStore("works", () => {
     {
       id: 7,
       title: "CrewBloom Applicant Hub",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      description: `A Web Application the Applicants of the company. This is where the applicants filling up their personal information, job experience and contact details.`,
       stacks: ["nuxt", "vuetify"],
-      link: "https://vue-dashboards-design.vercel.app/",
+      link: "",
       repo: "",
       imgUrl: "",
       icon: "",
@@ -83,8 +78,8 @@ export const useWorksStore = defineStore("works", () => {
     {
       id: 1,
       title: "Core CrewBloom",
-      description:
-        "This Web Application is where company HR and Admin do the company works like, invoicing, managing clients, employees and applicants.",
+      description: `A Web Application is where company HR and Admin do the company works like, invoicing, managing clients, employees and applicants. 
+      I created almost the entire Front End of this Web App.`,
       stacks: ["nuxt", "vuetify", "node"],
       link: "https://core.crewbloom.com/",
       repo: "",
@@ -94,9 +89,9 @@ export const useWorksStore = defineStore("works", () => {
     {
       id: 2,
       title: "RiteMed",
-      description:
-        "A website for one of the leading medicine brand in PH where you can see all medicine products and health information.",
-      stacks: ["vue", "tailwind", "laravel"],
+      description: `A website for one of the leading medicine brand in PH where you can see all medicine products, health information and etc. 
+      I was one of the Front End Developer who developed some of the pages in the website.`,
+      stacks: ["vue", "tailwind", "october-cms"],
       link: "https://www.ritemed.com.ph/",
       repo: "",
       imgUrl: "rite-med",
@@ -105,8 +100,7 @@ export const useWorksStore = defineStore("works", () => {
     {
       id: 3,
       title: "Qmulus Dashboard",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      description: `This is a Static Dasbhoard with Analytics Diagram I created when I applied as a Part Time Front End Developer in the company.`,
       stacks: ["nuxt", "vuetify"],
       link: "https://qmulus-front-end-assessment.netlify.app/",
       repo: "",
@@ -116,8 +110,7 @@ export const useWorksStore = defineStore("works", () => {
     {
       id: 4,
       title: "Bantayan Trucking Services",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      description: `A Web Application I made for college students, it's a Web Application for a Trucking Services which tracks item delivery.`,
       stacks: ["nuxt", "vuetify", "node"],
       link: "https://bits-dev.netlify.app/",
       repo: "",

@@ -18,8 +18,11 @@
       <v-row
         v-if="!['small', 'extra-small', 'super-small'].includes(getScreenType)"
       >
-        <v-col cols="6" v-for="project in projectsToDisplay" :key="project.title">
-          
+        <v-col
+          cols="6"
+          v-for="project in projectsToDisplay"
+          :key="project.title"
+        >
           <v-hover v-slot="{ isHovering, props }" open-delay="100">
             <v-card
               :elevation="isHovering ? 16 : 0"
@@ -35,7 +38,7 @@
                 easing: 'ease-in',
                 dissolveDuration: 1,
                 duration: 2,
-                trigger: 'card'
+                trigger: 'card',
               }"
               v-wave-trigger:card
             >
@@ -46,7 +49,7 @@
               <v-card-title> {{ project.title }} </v-card-title>
 
               <v-card-text>
-                <div>
+                <div class="project-descrption">
                   {{ project.description }}
                 </div>
                 <div class="learn-more-container mt-4">
@@ -87,7 +90,17 @@
                 <v-card-title class="mt-6"> {{ project.title }} </v-card-title>
 
                 <v-card-text class="mt-2">
+                  <div class="project-descrption-mobile">
                   {{ project.description }}
+                </div>
+                <div class="learn-more-container">
+                  <span
+                    class="font-weight-regular learn-more text-none"
+                    @click="onClickLearnMore(project.id)"
+                  >
+                    Learn more <v-icon size="18"> mdi-arrow-right </v-icon>
+                  </span>
+                </div>
                 </v-card-text>
               </v-card>
             </v-slide-group-item>
@@ -115,6 +128,21 @@ const onClickLearnMore = (id: any) => {
 </script>
 
 <style scoped>
+.project-descrption {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  line-height: 1.4rem;
+}
+
+.project-descrption-mobile {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  line-height: 1.4rem;
+}
 .works-section-container {
   height: 80vh;
   margin: -5rem 0 0 0;
