@@ -24,25 +24,30 @@
             </div>
           </div>
         </v-col>
-        <v-col v-if="!['extra-small', 'super-small', 'small'].includes(getScreenType)" class="d-flex justify-center">
-          <!-- <img
-            class="big-head"
-            src="/img/bighead-2.svg"
-            alt="big-head-icon-img"
-            :width="getLandingImgWidth"
-          /> -->
-          <v-hover
+        <v-col
+          v-if="
+            !['extra-small', 'super-small', 'small'].includes(getScreenType)
+          "
+          class="d-flex justify-center"
+        >
+          <!-- <v-hover
             v-slot="{ isHovering, props }"
             open-delay="200"
-          >
+          > 
             <img
               v-bind="props"
               :class="{ 'big-head' : !isHovering }"
               :src="`/img/${isHovering ? 'my-img-circle.png' : 'bighead-2.svg'}`"
               alt="big-head-icon-img"
               :width="isHovering ? getLandingMyImgWidth : getLandingImgWidth"
-            />
-          </v-hover>
+            /> 
+          </v-hover>  -->
+          <img
+            class="big-head"
+            src="/img/bighead-2.svg"
+            alt="big-head-icon-img"
+            :width="getLandingImgWidth"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -58,22 +63,24 @@ const getName = computed(() => {
 })
 
 const getLandingImgWidth = computed(() => {
-  if (['extra-small', 'small', 'super-small'].includes(getScreenType.value)) {
-    return '300'
-  } if (['medium'].includes(getScreenType.value)) {
-    return '400'
+  if (["extra-small", "small", "super-small"].includes(getScreenType.value)) {
+    return "300"
+  }
+  if (["medium"].includes(getScreenType.value)) {
+    return "400"
   } else {
-    return '500'
+    return "500"
   }
 })
 
 const getLandingMyImgWidth = computed(() => {
-  if (['extra-small', 'small', 'super-small'].includes(getScreenType.value)) {
-    return '200'
-  } if (['medium'].includes(getScreenType.value)) {
-    return '300'
+  if (["extra-small", "small", "super-small"].includes(getScreenType.value)) {
+    return "200"
+  }
+  if (["medium"].includes(getScreenType.value)) {
+    return "300"
   } else {
-    return '350'
+    return "350"
   }
 })
 
@@ -91,7 +98,7 @@ const getLandingDescription = computed(() => {
 }
 .landing-section-container {
   height: 80vh;
-  background-image: url('/img/scatter-bg.svg');
+  background-image: url("/img/scatter-bg.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }

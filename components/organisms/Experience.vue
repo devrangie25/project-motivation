@@ -2,9 +2,9 @@
   <div
     :class="`${
       ['small', 'extra-small', 'super-small'].includes(getScreenType) ? 'mobile-' : ''
-    }expertise-section-container pa-6`"
+    }experience-section-container pa-6`"
   >
-    <v-container class="expertise-inner-section">
+    <v-container class="experience-inner-section">
       <div
         class="text-h4 mt-6 mb-n12"
       >
@@ -93,20 +93,17 @@ const getJobType: any = computed(() => {
 .small-screen-timeline {
   margin-top: 8rem;
 }
-.expertise-section-container {
+.experience-section-container {
   height: 80vh;
 }
-
-.expertise-inner-section {
+.experience-inner-section {
   height: 100%;
 }
-
 .timeline {
   height: 100%;
   display: flex;
 }
-
-.mobile-expertise-section-container {
+.mobile-experience-section-container {
   height: 100%;
 }
 </style>
