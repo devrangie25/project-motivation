@@ -1,5 +1,4 @@
 <template>
-  <!-- <div class="expertise-section-container pa-6"> -->
     <div
       :class="`${
         ['small', 'extra-small', 'super-small'].includes(getScreenType) ? 'mobile-' : ''
@@ -187,8 +186,6 @@ const expertiseStore = useExpertiseStore()
 const { skills, techStacks } = storeToRefs(expertiseStore)
 const { getScreenType } = useScreenType()
 
-const tab = ref(null)
-
 const hoveredSkill = ref("")
 
 const getFrontEndSkills = computed(() => {
@@ -206,10 +203,6 @@ const getDatabaseSkills = computed(() => {
 const getToolSkills = computed(() => {
   return skills.value.filter((skill) => skill.category === "tools")
 })
-
-const onChangeTab = ($event: any, elem: any) => {
-  hoveredSkill.value = $event ? elem : ""
-}
 
 const onHoverElement = ($event: any, elem: any) => {
   hoveredSkill.value = $event ? elem.value : ""

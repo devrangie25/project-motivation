@@ -113,8 +113,6 @@ const { projectsToDisplay } = storeToRefs(worksStore)
 const { getScreenType } = useScreenType()
 const router = useRouter()
 
-const model = ref(null)
-
 const onClickLearnMore = (id: any) => {
   router.push(`/works/${id}`)
 }
