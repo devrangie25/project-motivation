@@ -1,5 +1,11 @@
 <template>
-  <div class="works-section-container pa-6">
+  <div
+    :class="`${
+      ['small', 'extra-small', 'super-small'].includes(getScreenType)
+        ? 'works-section-container-mobile'
+        : 'works-section-container'
+    } pa-6`"
+  >
     <v-container class="works-inner-section">
       <div class="d-flex justify-space-between align-center mt-6 mb-12">
         <div class="text-h4">Works</div>
@@ -67,44 +73,31 @@
       </v-row>
 
       <!-- For Smaller Screen -->
-      <v-row v-else align="center">
-        <v-col cols="12">
-          <v-slide-group v-model="model" center-active show-arrows>
-            <v-slide-group-item
-              v-for="project in projectsToDisplay"
-              :key="project.title"
-              v-slot="{ isSelected, toggle }"
+      <v-row
+        v-if="['small', 'extra-small', 'super-small'].includes(getScreenType)"
+      >
+        <v-col
+          v-for="project in projectsToDisplay"
+          :key="project.title"
+          cols="12"
+          sm="6"
+        >
+          <v-hover v-slot="{ isHovering, props }" open-delay="100">
+            <v-card
+              :elevation="isHovering ? 16 : 0"
+              :class="{ 'on-hover': isHovering }"
+              v-bind="props"
+              class="pa-4"
+              color="light"
+              @click="onClickLearnMore(project.id)"
             >
-              <v-card
-                :elevation="isSelected ? 16 : 0"
-                :color="'light'"
-                class="ma-4 pa-4"
-                width="300"
-                height="400"
-                @click="toggle"
-              >
-                <template v-slot:prepend>
-                  <v-icon icon="mdi-monitor" size="50"></v-icon>
-                </template>
+              <template v-slot:prepend>
+                <v-icon icon="mdi-monitor" size="35"></v-icon>
+              </template>
 
-                <v-card-title class="mt-6"> {{ project.title }} </v-card-title>
-
-                <v-card-text class="mt-2">
-                  <div class="project-descrption-mobile">
-                  {{ project.description }}
-                </div>
-                <div class="learn-more-container">
-                  <span
-                    class="font-weight-regular learn-more text-none"
-                    @click="onClickLearnMore(project.id)"
-                  >
-                    Learn more <v-icon size="18"> mdi-arrow-right </v-icon>
-                  </span>
-                </div>
-                </v-card-text>
-              </v-card>
-            </v-slide-group-item>
-          </v-slide-group>
+              <v-card-title> {{ project.title }} </v-card-title>
+            </v-card>
+          </v-hover>
         </v-col>
       </v-row>
     </v-container>
@@ -131,21 +124,24 @@ const onClickLearnMore = (id: any) => {
 .project-descrption {
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;  
+  -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.4rem;
 }
 
 .project-descrption-mobile {
   display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;  
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.4rem;
 }
 .works-section-container {
   height: 80vh;
-  margin: -5rem 0 0 0;
+  background: #ebebeb;
+}
+
+.works-section-container-mobile {
   background: #ebebeb;
 }
 .works-inner-section {

@@ -1,5 +1,10 @@
 <template>
-  <div class="expertise-section-container pa-6">
+  <!-- <div class="expertise-section-container pa-6"> -->
+    <div
+      :class="`${
+        ['small', 'extra-small', 'super-small'].includes(getScreenType) ? 'mobile-' : ''
+      }expertise-section-container pa-6`"
+    >
     <v-container class="expertise-inner-section">
       <div class="text-h4 mt-6">Skills</div>
       <!-- For Medium and Larger Screen -->
@@ -44,16 +49,18 @@
               :key="i"
               cols="3"
             >
-            <v-hover
-              v-slot="{ isHovering, props }"
-            >
-              <kinesis-container>
-                <kinesis-element type="depth" :strength="15">
+              <v-hover v-slot="{ isHovering, props }">
+                <kinesis-container>
+                  <kinesis-element type="depth" :strength="15">
                     <div class="text-center">
                       <div>
                         <img
                           v-bind="props"
-                          :class="(hoveredSkill !== skill.category && !isHovering) ? 'gray-scale-img' : ''"
+                          :class="
+                            hoveredSkill !== skill.category && !isHovering
+                              ? 'gray-scale-img'
+                              : ''
+                          "
                           :src="`/img/${skill.icon}`"
                           :width="
                             ['medium'].includes(getScreenType) ? '40' : '60'
@@ -74,53 +81,100 @@
 
       <!-- For Smaller Screen -->
       <div
-        v-else
-        :class="
-          ['small', 'extra-small', 'super-small'].includes(getScreenType)
-            ? 'mt-12'
-            : ''
-        "
+        v-if="['small', 'extra-small', 'super-small'].includes(getScreenType)"
       >
-        <v-tabs
-          v-model="tab"
-          color="deep-purple-accent-4"
-          align-tabs="center"
-          center-active
-          show-arrows
-          @update:model-value="onChangeTab($event, tab)"
-        >
-          <v-tab v-for="(item, ind) in techStacks" :value="item.value">
-            {{ item.text }}
-          </v-tab>
-        </v-tabs>
-        <v-row class="mt-12" align="center">
-          <v-col
-            class="d-flex justify-center"
-            v-for="(skill, i) in skills"
-            :key="i"
-            cols="4"
-            sm="3"
-          >
-            <kinesis-container>
-              <kinesis-element type="depth" :strength="15">
+        <div class="py-6">
+          <div class="mb-4">
+            <div class="text-h6">Front End</div>
+            <v-row class="mt-2">
+              <v-col
+                cols="4"
+                sm="3"
+                v-for="skill in getFrontEndSkills"
+                :key="skill.name"
+                class="d-flex justify-center"
+              >
                 <div class="text-center">
-                  <div>
-                    <img
-                      :class="
-                        hoveredSkill !== skill.category ? 'gray-scale-img' : ''
-                      "
-                      :src="`/img/${skill.icon}`"
-                      width="30"
-                    />
-                  </div>
-                  <span class="text-caption">
+                  <img :src="`/img/${skill.icon}`" :width="40" />
+                  <div class="text-caption">
                     {{ skill.name }}
-                  </span>
+                  </div>
                 </div>
-              </kinesis-element>
-            </kinesis-container>
-          </v-col>
-        </v-row>
+              </v-col>
+            </v-row>
+          </div>
+
+          <div class="my-4">
+            <div class="text-h6">Back End</div>
+            <v-row class="mt-2">
+              <v-col
+                cols="4"
+                sm="3"
+                v-for="skill in getBackEndSkills"
+                :key="skill.name"
+                class="d-flex justify-center"
+              >
+                <div class="text-center">
+                  <img :src="`/img/${skill.icon}`" :width="40" />
+                  <div class="text-caption">
+                    {{ skill.name }}
+                  </div>
+                </div>
+              </v-col>
+            </v-row>
+          </div>
+
+          <div class="my-4">
+            <div class="text-h6">Databases</div>
+            <v-row class="mt-2">
+              <v-col
+                cols="4"
+                sm="3"
+                v-for="skill in getDatabaseSkills"
+                :key="skill.name"
+                class="d-flex justify-center"
+              >
+                <div class="text-center">
+                  <img
+                    v-if="skill.category === 'databases'"
+                    :src="`/img/${skill.icon}`"
+                    :width="40"
+                  />
+                  <div
+                    v-if="skill.category === 'databases'"
+                    class="text-caption"
+                  >
+                    {{ skill.name }}
+                  </div>
+                </div>
+              </v-col>
+            </v-row>
+          </div>
+
+          <div class="mt-4">
+            <div class="text-h6">Tools</div>
+            <v-row class="mt-2">
+              <v-col
+                cols="4"
+                sm="3"
+                v-for="skill in getToolSkills"
+                :key="skill.name"
+                class="d-flex justify-center"
+              >
+                <div class="text-center">
+                  <img
+                    v-if="skill.category === 'tools'"
+                    :src="`/img/${skill.icon}`"
+                    :width="40"
+                  />
+                  <div v-if="skill.category === 'tools'" class="text-caption">
+                    {{ skill.name }}
+                  </div>
+                </div>
+              </v-col>
+            </v-row>
+          </div>
+        </div>
       </div>
     </v-container>
   </div>
@@ -137,6 +191,22 @@ const tab = ref(null)
 
 const hoveredSkill = ref("")
 
+const getFrontEndSkills = computed(() => {
+  return skills.value.filter((skill) => skill.category === "front-end")
+})
+
+const getBackEndSkills = computed(() => {
+  return skills.value.filter((skill) => skill.category === "back-end")
+})
+
+const getDatabaseSkills = computed(() => {
+  return skills.value.filter((skill) => skill.category === "databases")
+})
+
+const getToolSkills = computed(() => {
+  return skills.value.filter((skill) => skill.category === "tools")
+})
+
 const onChangeTab = ($event: any, elem: any) => {
   hoveredSkill.value = $event ? elem : ""
 }
@@ -151,17 +221,17 @@ const onHoverElement = ($event: any, elem: any) => {
   -webkit-filter: grayscale(1);
   filter: grayscale(95%);
 }
-
 .expertise-section-container {
   height: 80vh;
 }
-
 .expertise-inner-section {
   height: 100%;
 }
-
 .row-container {
   height: 100%;
   margin: -5rem 0 0 0;
+}
+.mobile-expertise-section-container {
+  height: 100%;
 }
 </style>
