@@ -6,7 +6,7 @@
           <v-card
             flat
             variant="outlined"
-            height="500"
+            :height="['small', 'extra-small', 'super-small'].includes(getScreenType) ? '250' : '500'"
             color="#ebebeb"
             :image="`/img/${getProject?.imgUrl}.png`"
           >
@@ -72,6 +72,8 @@
 const route = useRoute()
 const worksStore = useWorksStore()
 
+const { getScreenType } = useScreenType()
+
 const getProject = computed(() => {
   return worksStore.getProjectById(+route.params.id)
 })
@@ -82,11 +84,11 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* .v-img__img--cover {
+.v-img__img--cover {
   object-fit: cover;
-} */
+}
 
-.work-card {
+.card-img {
   object-fit: contain;
 }
 </style>
