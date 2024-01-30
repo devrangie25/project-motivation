@@ -10,19 +10,21 @@
       ></v-btn>
     </div>
 
-    <div class="mt-4 subtitle-1">
+    <div :class="`mt-4 ${['small', 'extra-small', 'super-small'].includes(getScreenType) ? 'text-body-2' : 'subtitle-1'}`">
       <span class="font-italic">
         "Don’t comment bad code, rewrite it." <span> – Brian Kernighan </span> 
       </span>
     </div>
 
-    <div class="subtitle-1 my-4">
+    <div :class="`${['small', 'extra-small', 'super-small'].includes(getScreenType) ? 'text-body-2' : 'subtitle-1'} my-4`">
       Project Motivation 2024 | Made with NuxtJs + Vuetify | <span class="font-weight-bold"> Dev Rangie </span>
     </div>
   </v-footer>
 </template>
 
 <script setup lang="ts">
+const { getScreenType } = useScreenType()
+
 const icons = ref([
   "mdi-facebook",
   "mdi-linkedin",
