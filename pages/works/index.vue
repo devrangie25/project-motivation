@@ -1,6 +1,6 @@
 <template>
-  <div class="pa-6">
-    <v-container>
+  <div class="works-container-index">
+    <v-container class="pa-6">
       <div>
         <span class="text-h4">
           Works
@@ -55,3 +55,11 @@ const worksStore = useWorksStore()
 
 const { projects } = storeToRefs(worksStore)
 </script>
+
+<style scoped>
+.works-container-index {
+  background-image: url("/img/polygon-scatter-haikei.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>

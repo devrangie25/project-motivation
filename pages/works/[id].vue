@@ -1,18 +1,45 @@
 <template>
-  <div class="pa-6">
-    <v-container>
-      <v-row class="py-12">
+  <div class="work-container-index">
+    <v-container class="pa-6">
+      <v-row class="pb-12">
+        <v-col cols="12">
+          <v-btn to="/works" class="text-capitalize" variant="tonal">
+            <v-icon> mdi-arrow-left </v-icon>
+          </v-btn>
+        </v-col>
         <v-col cols="12" md="8">
           <v-card
             flat
             variant="outlined"
-            :height="['small', 'extra-small', 'super-small'].includes(getScreenType) ? '250' : '500'"
+            :height="
+              ['extra-small', 'super-small'].includes(getScreenType) &&
+              getProject?.imgUrl
+                ? '250'
+                : ['extra-small', 'super-small'].includes(getScreenType) &&
+                  !getProject?.imgUrl
+                ? '100%'
+                : '500'
+            "
             color="#ebebeb"
-            :image="`/img/${getProject?.imgUrl}.png`"
           >
-            <v-card-text class="text-center">
-              <img v-if="!getProject?.imgUrl" :src="`/img/laptop.png`">
-            </v-card-text>
+            <!-- <v-card-text class="text-center d-flex align-center justify-center"> -->
+            <img
+              v-if="getProject?.imgUrl"
+              class="img-work"
+              height="100%"
+              :width="'100%'"
+              :src="`/img/${getProject?.imgUrl}.png`"
+            />
+            <img
+              v-if="!getProject?.imgUrl"
+              :width="
+                ['extra-small', 'super-small'].includes(getScreenType)
+                  ? 280
+                  : 480
+              "
+              :src="`/img/laptop.png`"
+            />
+            <!-- </v-card-text> -->
           </v-card>
         </v-col>
         <v-col cols="12" md="4">
@@ -58,7 +85,16 @@
                 width="60"
                 class="pa-2 text-body-2 mr-4 d-flex align-center"
               >
-                <img :src="`/img/${stack}.png`" width="100%" />
+                <v-tooltip
+                  :location="'top center'"
+                  :origin="'auto'"
+                  no-click-animation
+                >
+                  <template v-slot:activator="{ props }">
+                    <img v-bind="props" :src="`/img/${stack.img}.png`" width="100%" />
+                  </template>
+                  <div>{{ stack.title }}</div>
+                </v-tooltip>
               </v-card>
             </div>
           </div>
@@ -84,11 +120,12 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.v-img__img--cover {
-  object-fit: cover;
-}
-
-.card-img {
+.img-work {
   object-fit: contain;
+}
+.work-container-index {
+  background-image: url("/img/polygon-scatter-haikei.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
