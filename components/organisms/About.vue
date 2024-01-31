@@ -5,12 +5,19 @@
 
       <v-row :class="`row-about ${['small', 'extra-small', 'super-small'].includes(getScreenType) ? 'mt-6' : ''}`" align="center">
         <v-col v-if="!['small', 'extra-small', 'super-small'].includes(getScreenType)" cols="12" md="6" class="d-flex justify-center">
-          <img
-            src="/img/my-image.png"
-            :width="getLandingMyImgWidth"
-            alt="my-img"
-            class="rounded"
-          />
+            <v-img
+              src="/img/my-image.png"
+              :width="getLandingMyImgWidth"
+              height="480"
+              alt="my-img"
+              class="my-img"
+              >
+              <template v-slot:placeholder>
+                <div style="height: 100%;" class="d-flex align-center justify-center">
+                  <a-loader />
+                </div>
+              </template>
+            </v-img>
         </v-col>
 
         <v-col cols="12" md="6" class="d-flex justify-center">
