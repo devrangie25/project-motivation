@@ -1,12 +1,12 @@
 <template>
   <div class="works-container-index">
     <v-container class="pa-6">
-      <div>
+      <div class="mt-4">
         <span class="text-h4">
           Works
         </span>
       </div>
-      <v-row class="py-12">
+      <v-row class="pb-12 pt-6">
         <v-col
           cols="12"
           sm="6"
@@ -19,10 +19,9 @@
           <v-hover v-slot="{ isHovering, props }">
             <v-card
               v-bind="props"
-              variant="outlined"
               flat
+              color="#F3F8FF"
               height="300"
-              color="#ebebeb"
               :to="`works/${project.id}`"
 
             >
@@ -31,6 +30,16 @@
                 :cover="project.imgUrl ? true : false"
                 :src="`/img/${project.imgUrl ? project.imgUrl : 'laptop'}.png`"
               >
+                <template v-slot:placeholder>
+                  <div style="height: 100%;" class="d-flex align-center justify-center">
+                    <a-loader />
+                  </div>
+                </template>
+                <template v-slot:error>
+                  <div style="height: 100%;" class="d-flex align-center justify-center">
+                    <v-img :src="`/img/laptop.png`"></v-img>
+                  </div>
+                </template>
                 <v-expand-transition>
                   <div
                     v-if="isHovering"

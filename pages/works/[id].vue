@@ -1,7 +1,7 @@
 <template>
   <div class="work-container-index">
     <v-container class="pa-6">
-      <v-row class="pb-12">
+      <v-row class="pb-12 pt-6">
         <v-col cols="12">
           <v-btn to="/works" class="text-capitalize" variant="tonal">
             <v-icon> mdi-arrow-left </v-icon>
@@ -10,7 +10,7 @@
         <v-col cols="12" md="8">
           <v-card
             flat
-            variant="outlined"
+            color="#F3F8FF"
             :height="
               ['extra-small', 'super-small'].includes(getScreenType) &&
               getProject?.imgUrl
@@ -20,26 +20,51 @@
                 ? '100%'
                 : '500'
             "
-            color="#ebebeb"
           >
-            <!-- <v-card-text class="text-center d-flex align-center justify-center"> -->
-            <img
+            <v-img
               v-if="getProject?.imgUrl"
-              class="img-work"
+              :src="`/img/${getProject?.imgUrl}.png`"
               height="100%"
               :width="'100%'"
-              :src="`/img/${getProject?.imgUrl}.png`"
-            />
-            <img
-              v-if="!getProject?.imgUrl"
-              :width="
-                ['extra-small', 'super-small'].includes(getScreenType)
-                  ? 280
-                  : 480
-              "
-              :src="`/img/laptop.png`"
-            />
-            <!-- </v-card-text> -->
+              alt="img-work"
+              class="img-work"
+            >
+              <template v-slot:placeholder>
+                <div style="height: 100%;" class="d-flex align-center justify-center">
+                  <a-loader-img />
+                </div>
+              </template>
+              <template v-slot:error>
+                <div style="height: 100%;" class="d-flex align-center justify-center">
+                  <v-img :src="`/img/laptop.png`"></v-img>
+                </div>
+              </template>
+            </v-img>
+            <div class="text-center d-flex align-center justify-center">
+              <v-img
+                v-if="!getProject?.imgUrl"
+                :width="
+                  ['extra-small', 'super-small'].includes(getScreenType)
+                    ? 280
+                    : 480
+                "
+                :height="['extra-small', 'super-small'].includes(getScreenType)
+                    ? 280
+                    : 480"
+                :src="`/img/laptop.png`"
+              >
+                <template v-slot:placeholder>
+                  <div style="height: 100%;" class="d-flex align-center justify-center">
+                    <a-loader-img />
+                  </div>
+                </template>
+                <template v-slot:error>
+                  <div style="height: 100%;" class="d-flex align-center justify-center">
+                    <v-img :src="`/img/laptop.png`"></v-img>
+                  </div>
+                </template>
+              </v-img>
+            </div>
           </v-card>
         </v-col>
         <v-col cols="12" md="4">
@@ -91,7 +116,11 @@
                   no-click-animation
                 >
                   <template v-slot:activator="{ props }">
-                    <img v-bind="props" :src="`/img/${stack.img}.png`" width="100%" />
+                    <img
+                      v-bind="props"
+                      :src="`/img/${stack.img}.png`"
+                      width="100%"
+                    />
                   </template>
                   <div>{{ stack.title }}</div>
                 </v-tooltip>

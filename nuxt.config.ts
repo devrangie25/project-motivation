@@ -2,12 +2,16 @@
 export default defineNuxtConfig({
   app: {
     head: {
+      title: "Project Motivation - Portfolio",
       link: [
         {
           rel: "icon",
           type: "image/svg",
           href: "/img/big-head-1.svg",
         },
+      ],
+      meta: [
+        { name: 'Project Motivation', content: 'Project Motivation as my Online Portfolio using Nuxt3 and Vuetify' }
       ],
     },
   },
@@ -27,6 +31,7 @@ export default defineNuxtConfig({
     "~/components",
     { path: "~/components/organisms", prefix: "o" },
     { path: "~/components/molecules", prefix: "m" },
+    { path: "~/components/atoms", prefix: "a" },
   ],
 
   modules: [
