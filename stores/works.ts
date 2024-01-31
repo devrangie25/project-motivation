@@ -5,7 +5,20 @@ export const useWorksStore = defineStore("works", () => {
       title: "Core CrewBloom",
       description: `A Web Application is where company HR and Admin do the company works like, invoicing, managing clients, employees and applicants. 
       I created almost the entire Front End of this Web App.`,
-      stacks: ["nuxt", "vuetify", "node"],
+      stacks: [
+        {
+          title: 'NuxtJs',
+          img: 'nuxt'
+        },
+        {
+          title: 'Vuetify',
+          img: 'vuetify'
+        },
+        {
+          title: 'NodeJs',
+          img: 'node'
+        }
+      ],
       link: "https://core.crewbloom.com/",
       repo: "",
       imgUrl: "core-crewbloom",
@@ -16,7 +29,20 @@ export const useWorksStore = defineStore("works", () => {
       title: "RiteMed",
       description: `A website for one of the leading medicine brand in PH where you can see all medicine products, health information and etc. 
       I was one of the Front End Developer who developed some of the pages in the website.`,
-      stacks: ["vue", "tailwind", "october-cms"],
+      stacks: [
+        {
+          title: 'VueJs',
+          img: 'vue'
+        },
+        {
+          title: 'TailwindCSS',
+          img: 'tailwind'
+        },
+        {
+          title: 'October CMS',
+          img: 'october-cms'
+        }
+      ],
       link: "https://www.ritemed.com.ph/",
       repo: "",
       imgUrl: "rite-med",
@@ -26,7 +52,16 @@ export const useWorksStore = defineStore("works", () => {
       id: 3,
       title: "Qmulus Dashboard",
       description: `This is a Static Dasbhoard with Analytics Diagram I created when I applied as a Part Time Front End Developer in the company.`,
-      stacks: ["nuxt", "vuetify"],
+      stacks: [
+        {
+          title: 'NuxtJs',
+          img: 'nuxt'
+        },
+        {
+          title: 'Vuetify',
+          img: 'vuetify'
+        }
+      ],
       link: "https://qmulus-front-end-assessment.netlify.app/",
       repo: "",
       imgUrl: "qmulus-dashboard",
@@ -36,7 +71,20 @@ export const useWorksStore = defineStore("works", () => {
       id: 4,
       title: "Bantayan Trucking Services",
       description: `A Web Application I made for college students, it's a Web Application for a Trucking Services which tracks item delivery.`,
-      stacks: ["nuxt", "vuetify", "node"],
+      stacks: [
+        {
+          title: 'NuxtJs',
+          img: 'nuxt'
+        },
+        {
+          title: 'Vuetify',
+          img: 'vuetify'
+        },
+        {
+          title: 'NodeJs',
+          img: 'node'
+        }
+      ],
       link: "https://bits-dev.netlify.app/",
       repo: "",
       imgUrl: "bits",
@@ -46,7 +94,16 @@ export const useWorksStore = defineStore("works", () => {
       id: 5,
       title: "HR Dashboard",
       description: `A Static HR Dashboard I created just for fun.`,
-      stacks: ["nuxt", "vuetify"],
+      stacks: [
+        {
+          title: 'NuxtJs',
+          img: 'nuxt'
+        },
+        {
+          title: 'Vuetify',
+          img: 'vuetify'
+        }
+      ],
       link: "https://vue-dashboards-design.vercel.app/",
       repo: "",
       imgUrl: "hr-dashboard",
@@ -56,7 +113,20 @@ export const useWorksStore = defineStore("works", () => {
       id: 6,
       title: "CrewBloom Invoicing Hub",
       description: `A Web Application for managing Invoicing of the company. This is where the accounting team will create invoice for their clients. Also using third party integration of payment gateway.`,
-      stacks: ["nuxt", "vuetify", "laravel"],
+      stacks: [
+        {
+          title: 'VueJs',
+          img: 'vue'
+        },
+        {
+          title: 'Vuetify',
+          img: 'vuetify'
+        },
+        {
+          title: 'PHP Laravel',
+          img: 'laravel'
+        }
+      ],
       link: "",
       repo: "",
       imgUrl: "",
@@ -66,7 +136,20 @@ export const useWorksStore = defineStore("works", () => {
       id: 7,
       title: "CrewBloom Applicant Hub",
       description: `A Web Application the Applicants of the company. This is where the applicants filling up their personal information, job experience and contact details.`,
-      stacks: ["nuxt", "vuetify"],
+      stacks: [
+        {
+          title: 'NuxtJs',
+          img: 'nuxt'
+        },
+        {
+          title: 'Vuetify',
+          img: 'vuetify'
+        },
+        {
+          title: 'NodeJs',
+          img: 'node'
+        }
+      ],
       link: "",
       repo: "",
       imgUrl: "",
@@ -80,7 +163,20 @@ export const useWorksStore = defineStore("works", () => {
       title: "Core CrewBloom",
       description: `A Web Application is where company HR and Admin do the company works like, invoicing, managing clients, employees and applicants. 
       I created almost the entire Front End of this Web App.`,
-      stacks: ["nuxt", "vuetify", "node"],
+      stacks: [
+        {
+          title: 'NuxtJs',
+          img: 'nuxt'
+        },
+        {
+          title: 'Vuetify',
+          img: 'vuetify'
+        },
+        {
+          title: 'NodeJs',
+          img: 'node'
+        }
+      ],
       link: "https://core.crewbloom.com/",
       repo: "",
       imgUrl: "core-crewbloom",
@@ -91,7 +187,20 @@ export const useWorksStore = defineStore("works", () => {
       title: "RiteMed",
       description: `A website for one of the leading medicine brand in PH where you can see all medicine products, health information and etc. 
       I was one of the Front End Developer who developed some of the pages in the website.`,
-      stacks: ["vue", "tailwind", "october-cms"],
+      stacks: [
+        {
+          title: 'VueJs',
+          img: 'vue'
+        },
+        {
+          title: 'TailwindCSS',
+          img: 'tailwind'
+        },
+        {
+          title: 'October CMS',
+          img: 'october-cms'
+        }
+      ],
       link: "https://www.ritemed.com.ph/",
       repo: "",
       imgUrl: "rite-med",
@@ -101,7 +210,16 @@ export const useWorksStore = defineStore("works", () => {
       id: 3,
       title: "Qmulus Dashboard",
       description: `This is a Static Dasbhoard with Analytics Diagram I created when I applied as a Part Time Front End Developer in the company.`,
-      stacks: ["nuxt", "vuetify"],
+      stacks: [
+        {
+          title: 'NuxtJs',
+          img: 'nuxt'
+        },
+        {
+          title: 'Vuetify',
+          img: 'vuetify'
+        }
+      ],
       link: "https://qmulus-front-end-assessment.netlify.app/",
       repo: "",
       imgUrl: "qmulus-dashboard",
@@ -111,7 +229,20 @@ export const useWorksStore = defineStore("works", () => {
       id: 4,
       title: "Bantayan Trucking Services",
       description: `A Web Application I made for college students, it's a Web Application for a Trucking Services which tracks item delivery.`,
-      stacks: ["nuxt", "vuetify", "node"],
+      stacks: [
+        {
+          title: 'NuxtJs',
+          img: 'nuxt'
+        },
+        {
+          title: 'Vuetify',
+          img: 'vuetify'
+        },
+        {
+          title: 'NodeJs',
+          img: 'node'
+        }
+      ],
       link: "https://bits-dev.netlify.app/",
       repo: "",
       imgUrl: "bits",
