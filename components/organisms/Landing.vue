@@ -4,7 +4,7 @@
       <v-row no-gutters align="center">
         <v-col>
           <div>
-            <div class="text-h6">Hello, I'm</div>
+            <div class="text-h5">Hello, I'm</div>
             <div class="text-h4 font-weight-bold mt-2">{{ getName }}</div>
             <div class="mt-6">
               <span class="text-break" v-html="getLandingDescription"></span>
