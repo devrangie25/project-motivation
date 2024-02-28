@@ -16,6 +16,11 @@ export const useExpertiseStore = defineStore("expertise", () => {
       category: "front-end",
     },
     {
+      name: "Tailwind",
+      icon: "tailwind.png",
+      category: "front-end",
+    },
+    {
       name: "Bootstrap",
       icon: "bootstrap.svg",
       category: "front-end",
@@ -33,6 +38,11 @@ export const useExpertiseStore = defineStore("expertise", () => {
     {
       name: "NuxtJs",
       icon: "nuxt.png",
+      category: "front-end",
+    },
+    {
+      name: "SvelteKit",
+      icon: "svelte.png",
       category: "front-end",
     },
     {

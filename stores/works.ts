@@ -155,6 +155,25 @@ export const useWorksStore = defineStore("works", () => {
       imgUrl: "",
       icon: "",
     },
+    {
+      id: 8,
+      title: "My E-commerce Site",
+      description: `This is my first e-commerce website built using SvelteKit and Tailwindcss. It is not functional, this is just for practice purposes only.`,
+      stacks: [
+        {
+          title: 'SvelteKit',
+          img: 'svelte'
+        },
+        {
+          title: 'Tailwind',
+          img: 'tailwind'
+        }
+      ],
+      link: "https://my-ecommerce-pi.vercel.app/",
+      repo: "",
+      imgUrl: "my-ecommerce",
+      icon: "",
+    },
   ])
 
   const projectsToDisplay = ref([
