@@ -169,8 +169,8 @@ export const useWorksStore = defineStore("works", () => {
           img: 'tailwind'
         }
       ],
-      link: "https://my-ecommerce-pi.vercel.app/",
-      repo: "",
+      link: "https://my-ecommerce-91p7.vercel.app",
+      repo: "https://github.com/devrangie25/my-ecommerce",
       imgUrl: "my-ecommerce",
       icon: "",
     },
